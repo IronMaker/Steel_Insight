@@ -1,0 +1,15 @@
+{
+  "name": "steel-insights-core",
+  "version": "1.0.0",
+  "description": "High-fidelity intelligence extraction engine for open source collaboration.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "openai": "^4.28.0"
+  },
+  "author": "Steel Insights Open Source Team",
+  "license": "MIT"
+}
