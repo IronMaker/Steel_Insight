@@ -1,0 +1,16 @@
+{
+  "package_id": "ctl-multi-source-reconstruction",
+  "version": "0.1.0",
+  "status": "PASS",
+  "files_count": 22,
+  "repo_target": "02_Skills/CTL-Multi-Source-Reconstruction",
+  "checks": {
+    "required_files_present": true,
+    "json_valid": true,
+    "yaml_valid": true,
+    "utf8": true,
+    "auto_publish_disabled": true,
+    "canonical_auto_rewrite_disabled": true
+  },
+  "promotion_status": "HOLD_PENDING_DISTINCT_CASE"
+}
