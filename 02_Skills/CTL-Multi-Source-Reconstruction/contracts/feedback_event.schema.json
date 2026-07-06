@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ctl.local/contracts/feedback-event.schema.json",
+  "title": "CTL Shared Feedback Event",
+  "type": "object",
+  "required": ["event_id", "event_type", "skill_id", "skill_version", "occurred_at", "evidence", "disposition"],
+  "properties": {
+    "event_id": {"type": "string"},
+    "event_type": {"enum": ["USER_CORRECTION", "TASK_FAILURE", "TOOL_ERROR", "SAFETY_REJECTION", "HYPOTHESIS_REJECTED", "WORKAROUND_ACCEPTED", "VALIDATION_PASS", "FINAL_SUCCESS"]},
+    "skill_id": {"const": "ctl-multi-source-reconstruction"},
+    "skill_version": {"type": "string"},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "request_id": {"type": ["string", "null"]},
+    "case_id": {"type": ["string", "null"]},
+    "evidence": {
+      "type": "object",
+      "required": ["summary"],
+      "properties": {
+        "summary": {"type": "string"},
+        "source_refs": {"type": "array", "items": {"type": "string"}},
+        "before": {"type": ["string", "null"]},
+        "after": {"type": ["string", "null"]}
+      }
+    },
+    "severity": {"enum": ["INFO", "LOW", "MEDIUM", "HIGH", "CRITICAL"]},
+    "disposition": {"enum": ["OBSERVE_ONLY", "REFLECT_CANDIDATE", "TEST_REQUIRED", "PROMOTION_CANDIDATE", "ROLLBACK_CANDIDATE", "CLOSED"]},
+    "notes": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}
