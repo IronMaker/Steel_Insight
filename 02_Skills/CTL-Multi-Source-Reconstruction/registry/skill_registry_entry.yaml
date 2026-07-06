@@ -1,0 +1,29 @@
+skill_id: ctl-multi-source-reconstruction
+display_name: "CTL｜多來源內容重建與協同精進"
+version: 0.1.0
+status: candidate
+category:
+  - content_reconstruction
+  - verification
+  - synthesis
+  - learning_support
+repo_path: 02_Skills/CTL-Multi-Source-Reconstruction
+entrypoint: SKILL.md
+owner_prefix: CTL
+governance: CTL-SEGC
+adoption:
+  production_ready: false
+  pilot_cases_completed: 1
+  distinct_domain_case_required: true
+validation:
+  static_contracts: PASS
+  golden_test: PASS
+  boundary_test: PASS
+  regression_test: PASS
+  real_world_cross_domain_test: PENDING
+promotion_gate:
+  current_decision: HOLD
+  reason: "SEAISI case validated; second distinct real-world case still required."
+rollback:
+  current_target: null
+  note: "Initial release; retain package 0.1.0 as baseline after next promotion."

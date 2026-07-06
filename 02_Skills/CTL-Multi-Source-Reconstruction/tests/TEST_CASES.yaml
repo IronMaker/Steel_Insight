@@ -1,0 +1,23 @@
+case_pack: ctl-multi-source-reconstruction-v0.1.0
+status: PASS
+cases:
+  - case_id: golden-seaisi-learning-001
+    suite: golden
+    expected_invariants:
+      - primary draft preserves unclear audio markers
+      - corrected terminology includes explicit basis
+      - slide-only content is not presented as spoken content
+      - external LLM output is reconciled rather than accepted wholesale
+      - bird-eye synthesis appears after fact-layer stabilization
+      - learning feedback identifies user questions and model blind spots
+  - case_id: boundary-slide-not-spoken-001
+    suite: boundary
+    boundary: slide text is correction/context only unless supported by audio
+    expected_behavior:
+      - do not add slide-only terms to spoken transcript
+      - allow a clearly labeled slide reference note
+  - case_id: regression-uncertainty-preservation-001
+    suite: regression
+    expected_behavior:
+      - preserve [inaudible] and [unclear]
+      - never replace an unclear spoken number with a slide number without an explicit marker

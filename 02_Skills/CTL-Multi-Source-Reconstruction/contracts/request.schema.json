@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ctl.local/contracts/multi-source-reconstruction-request.schema.json",
+  "title": "CTL Multi-source Reconstruction Request",
+  "type": "object",
+  "required": ["request_id", "mode", "primary_objective", "sources", "requested_outputs"],
+  "properties": {
+    "request_id": {"type": "string", "minLength": 1},
+    "parent_call_id": {"type": ["string", "null"]},
+    "invoked_by_skill": {"type": ["string", "null"]},
+    "mode": {"enum": ["QUICK", "VERIFY", "LEARN"]},
+    "primary_objective": {"enum": ["transcript_reconstruction", "content_verification", "bird_eye_synthesis", "formal_report_preparation", "learning_review", "mixed"]},
+    "secondary_objectives": {"type": "array", "items": {"type": "string"}},
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["source_id", "source_type", "role"],
+        "properties": {
+          "source_id": {"type": "string"},
+          "source_type": {"enum": ["audio", "video", "raw_asr", "transcript", "slides", "pdf", "agenda", "speaker_list", "notes", "llm_draft", "terminology_table", "other"]},
+          "role": {"enum": ["PRIMARY", "CORRECTION", "VERIFICATION", "CONTEXT_ONLY", "USER_ASSERTION", "UNAVAILABLE"]},
+          "location": {"type": ["string", "null"]},
+          "description": {"type": ["string", "null"]},
+          "trust_notes": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "protected_boundaries": {"type": "array", "items": {"type": "string"}},
+    "requested_outputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"enum": ["source_role_map", "primary_draft", "correction_table", "reconciliation_table", "bird_eye_synthesis", "uncertainty_items", "human_review_items", "learning_feedback", "formal_report"]}
+    },
+    "user_context": {"type": "object"},
+    "handoff": {"type": "object"}
+  },
+  "additionalProperties": false
+}

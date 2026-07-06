@@ -1,0 +1,37 @@
+{
+  "package_id": "ctl-multi-source-reconstruction",
+  "display_name": "CTL｜多來源內容重建與協同精進",
+  "version": "0.1.0",
+  "lifecycle": "candidate",
+  "repo_path": "02_Skills/CTL-Multi-Source-Reconstruction",
+  "repo_core_subset": true,
+  "full_package_file": "CTL-Multi-Source-Reconstruction-v0.1.0.zip",
+  "content_hashes": "maintained_in_full_package_manifest",
+  "shared_contracts": {
+    "governance": "CTL-SEGC",
+    "request": "contracts/request.schema.json",
+    "response": "contracts/response.schema.json",
+    "feedback_event": "contracts/feedback_event.schema.json"
+  },
+  "validation": {
+    "static_contracts": "PASS",
+    "golden": "PASS",
+    "boundary": "PASS",
+    "regression": "PASS",
+    "distinct_real_world_case": "PENDING"
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "skill.yaml",
+    "CHANGELOG.md",
+    "VALIDATION.json",
+    "governance/SEGC_INTEGRATION.md",
+    "registry/skill_registry_entry.yaml",
+    "contracts/request.schema.json",
+    "contracts/response.schema.json",
+    "contracts/feedback_event.schema.json",
+    "references/SEAISI_2026_CASE_STUDY.md",
+    "tests/TEST_CASES.yaml"
+  ]
+}
