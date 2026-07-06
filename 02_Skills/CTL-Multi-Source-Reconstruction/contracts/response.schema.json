@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ctl.local/contracts/multi-source-reconstruction-response.schema.json",
+  "title": "CTL Multi-source Reconstruction Response",
+  "type": "object",
+  "required": ["request_id", "skill", "version", "mode", "status", "source_role_map", "artifacts", "uncertainty_items", "human_review_items", "feedback_receipt"],
+  "properties": {
+    "request_id": {"type": "string"},
+    "skill": {"const": "ctl-multi-source-reconstruction"},
+    "version": {"type": "string"},
+    "mode": {"enum": ["QUICK", "VERIFY", "LEARN"]},
+    "status": {"enum": ["COMPLETED", "PARTIAL", "NEEDS_HUMAN_REVIEW", "FAILED"]},
+    "source_role_map": {"type": "array", "items": {"type": "object"}},
+    "artifacts": {"type": "object"},
+    "uncertainty_items": {"type": "array", "items": {"type": "object"}},
+    "human_review_items": {"type": "array", "items": {"type": "object"}},
+    "feedback_receipt": {"type": "array", "items": {"type": "object"}},
+    "handoff": {"type": "object"}
+  },
+  "additionalProperties": false
+}
