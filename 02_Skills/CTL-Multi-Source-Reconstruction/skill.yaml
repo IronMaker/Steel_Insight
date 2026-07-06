@@ -1,0 +1,72 @@
+package_id: ctl-multi-source-reconstruction
+display_name: "CTL｜多來源內容重建與協同精進"
+version: 0.1.0
+lifecycle: candidate
+owner_prefix: CTL
+entrypoint: SKILL.md
+repo_path: 02_Skills/CTL-Multi-Source-Reconstruction
+language:
+  default: zh-TW
+  engineering_identifiers: en
+modes:
+  - QUICK
+  - VERIFY
+  - LEARN
+capabilities:
+  - transcript_reconstruction
+  - reference_assisted_correction
+  - cross_llm_verification
+  - reconciliation
+  - bird_eye_synthesis
+  - learning_feedback
+inputs:
+  supported_source_types:
+    - audio
+    - video
+    - raw_asr
+    - transcript
+    - slides
+    - pdf
+    - agenda
+    - speaker_list
+    - notes
+    - llm_draft
+    - terminology_table
+outputs:
+  - source_role_map
+  - primary_draft
+  - correction_table
+  - reconciliation_table
+  - bird_eye_synthesis
+  - uncertainty_items
+  - human_review_items
+  - learning_feedback
+shared_contracts:
+  request: contracts/request.schema.json
+  response: contracts/response.schema.json
+  feedback_event: contracts/feedback_event.schema.json
+governance:
+  system: CTL-SEGC
+  evolution_loop:
+    - Observe
+    - Reflect
+    - Consolidate
+    - Validate
+    - Promote
+    - Monitor
+    - Rollback
+  auto_rewrite_canonical: false
+  auto_publish: false
+  self_monitor_all_dialogue: false
+  promotion_requires_distinct_case: true
+compatibility:
+  callable_by_other_skills: true
+  tool_agnostic: true
+  supports_human_in_the_loop: true
+validation:
+  status: PASS
+  validated_at: 2026-07-06
+  required_suites:
+    - golden
+    - boundary
+    - regression
